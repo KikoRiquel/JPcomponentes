@@ -1,22 +1,37 @@
-<div class="categorias">
-  <h5>Categorias</h5>
-  <ul class="nav nav-pills">
-    <li class="nav-item" *ngFor="let a of getCategorias()">
-      <a class="nav-link" href=" {{ a.id }} ">{{ a.nombre }}</a>
-    </li>
-  </ul>
-</div>
-<div class="fabricantes">
-  <h5>Fabricantes</h5>
-  <ul class="nav nav-pills">
-    <li class="nav-item" *ngFor="let a of getFabricantes()">
-      <a class="nav-link" href=" {{ a.id }} ">{{ a.nombre }}</a>
-    </li>
-  </ul>
-  <div class="tarjetasArticulos">
-    <app-tarjetas-articulos
-      *ngFor="let articulos of getArticulos()"
-      [articulos]="articulos"
-    ></app-tarjetas-articulos>
+<button
+  class="btn btn-primary catyfab"
+  type="button"
+  data-bs-toggle="collapse"
+  data-bs-target="#collapseExample"
+  aria-expanded="false"
+  aria-controls="collapseExample"
+>
+  Categorias y Fabricantes
+</button>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body catyfab">
+    <div class="categorias">
+      <h5>Categorias</h5>
+      <ul class="nav nav-pills">
+        <li class="nav-item" *ngFor="let a of getCategorias()">
+          <a class="nav-link" href=" {{ a.id }} ">{{ a.nombre }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="fabricantes">
+      <h5>Fabricantes</h5>
+      <ul class="nav nav-pills">
+        <li class="nav-item" *ngFor="let a of getFabricantes()">
+          <a class="nav-link" href=" {{ a.id }} ">{{ a.nombre }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-auto">
+  <app-tarjetas-articulos
+    *ngFor="let articulos of getArticulos()"
+    [articulos]="articulos"
+  ></app-tarjetas-articulos>
 </div>
