@@ -1,15 +1,16 @@
 <div class="col">
-  <div class="card" style="width: 18rem">
-    <!-- No muestra el h-100 por eso lo quito pero para que se vean todas de la misma altura habrai que ponerlo -->
-    <img src="{{ articulos.imagen }}" class="card-img-top" />
+  <div class="card h-100" style="width: 18rem">
+    <img src="{{ articulos.imagen }}" class="card-img-top" alt="..." />
     <!-- si en el src hay espacios se va a quejar diciendo que no esta sanitizado -->
     <div class="card-body">
-      <h5 class="card-title">
-        {{ articulos.nombre }} <br /> {{ articulos.precio }} $
-      </h5>
+      <h5 class="card-title">{{ articulos.precio }} $</h5>
+      <p class="card-text">{{ articulos.nombre }}</p>
+    </div>
+    <div class="card-footer">
+      <!-- ---------------------- BOTON CUANDO SI HAY STOCK ---------------------- -->
       <div class="d-grid gap-2">
         <button
-          class="btn btn-primary d-flex justify-content-between"
+          class="btn btn-primary align-baseline d-flex justify-content-between"
           type="button"
           *ngIf="articulos.stock"
         >
@@ -30,6 +31,7 @@
           <span
             ><input
               type="number"
+              class="align-baseline"
               name="stockNumber"
               value="1"
               min="1"
@@ -37,6 +39,7 @@
           /></span>
         </button>
       </div>
+      <!-- ------------------------ BOTON SI NO HAY STOCK ------------------------ -->
       <div class="d-grid gap-2">
         <button
           class="btn btn-primary btn-danger"
