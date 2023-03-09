@@ -4,8 +4,7 @@
 input[type="number"] {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid white;
-  color: white;
+  border-bottom: 1px solid #0f52fc;
+  color: #0f52fc;
   text-align: center;
-  height: 20px;
 }

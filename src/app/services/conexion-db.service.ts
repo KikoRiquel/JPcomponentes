@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ export class ConexionDBService {
   private categorias: Array<any> = [];
   private fabricantes: Array<any> = [];
   private articulos: Array<any> = [];
-  private DbObjects: Array<any> = [];
+  private carrito: Array<any> = [];
   private baseURL: string =
     'https://my-json-server.typicode.com/luismiguel-fernandez/angular2022/';
 
@@ -25,11 +26,8 @@ export class ConexionDBService {
       this.articulos = datos;
       console.log(this.articulos);
     });
-    /*     http.get(this.baseURL + 'db').subscribe((datos: any) => {
-      this.DbObjects = datos;
-      console.log(this.DbObjects);
-    }); */
   }
+
   getCategorias(): Array<any> {
     return this.categorias;
   }
@@ -39,7 +37,15 @@ export class ConexionDBService {
   getArticulos(): Array<any> {
     return this.articulos;
   }
-  /*   getDbObjects(): Array<any> {
-    return this.DbObjects;
-  } */
 }
+
+/*
+  private DbObjects: Array<any> = [];
+http.get(this.baseURL + 'db').subscribe((datos: any) => {
+  this.DbObjects = datos;
+  console.log(this.DbObjects);
+});
+getDbObjects(): Array<any> {
+return this.DbObjects;
+}
+*/

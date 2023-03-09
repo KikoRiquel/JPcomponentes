@@ -1,16 +1,18 @@
 <div class="col">
-  <div class="card h-100" style="width: 18rem">
+  <div class="card" style="width: 18rem">
     <img src="{{ articulos.imagen }}" class="card-img-top" alt="..." />
     <!-- si en el src hay espacios se va a quejar diciendo que no esta sanitizado -->
     <div class="card-body">
-      <h5 class="card-title">{{ articulos.precio }} $</h5>
+      <h5 class="card-title">
+        {{ articulos.precio | currency : "EUR" }}
+      </h5>
       <p class="card-text">{{ articulos.nombre }}</p>
     </div>
     <div class="card-footer">
       <!-- ---------------------- BOTON CUANDO SI HAY STOCK ---------------------- -->
-      <div class="d-grid gap-2">
+      <div class="d-flex justify-content-between">
         <button
-          class="btn btn-primary align-baseline d-flex justify-content-between"
+          class="btn btn-primary align-baseline"
           type="button"
           *ngIf="articulos.stock"
         >
@@ -28,16 +30,16 @@
               /></svg
             >Añadir al carrito</span
           >
-          <span
-            ><input
-              type="number"
-              class="align-baseline"
-              name="stockNumber"
-              value="1"
-              min="1"
-              max="100"
-          /></span>
         </button>
+        <input
+          *ngIf="articulos.stock"
+          type="number"
+          class="align-baseline"
+          name="stockNumber"
+          value="1"
+          min="1"
+          max="100"
+        />
       </div>
       <!-- ------------------------ BOTON SI NO HAY STOCK ------------------------ -->
       <div class="d-grid gap-2">
