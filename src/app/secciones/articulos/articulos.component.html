@@ -1,5 +1,28 @@
+<div class="input-group mb-3 mt-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Buscador"
+    aria-label="Recipient's username"
+    aria-describedby="button-addon2"
+  />
+  <button class="btn btn-primary" type="button" id="button-addon2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-search"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+      />
+    </svg>
+  </button>
+</div>
 <button
-  class="btn btn-primary w-100 catyfab"
+  class="btn btn-primary w-100 mb-3"
   type="button"
   data-bs-toggle="collapse"
   data-bs-target="#collapseExample"
@@ -9,7 +32,7 @@
   Categorias y Fabricantes
 </button>
 <div class="collapse" id="collapseExample">
-  <div class="card card-body catyfab">
+  <div class="card card-body mb-3">
     <div class="categorias">
       <h5>Categorias</h5>
       <ul class="nav nav-pills">
@@ -34,7 +57,11 @@ row row-cols-1 row-cols-md-auto g-4
 -->
 <div class="card-group column-gap-5 row-gap-4">
   <app-tarjetas-articulos
-    *ngFor="let articulos of getArticulos()"
+    *ngFor="
+      let articulos of getArticulos()
+        | pipeCat : filtroCat
+        | pipeFab : filtroFab
+    "
     [articulos]="articulos"
   ></app-tarjetas-articulos>
 </div>

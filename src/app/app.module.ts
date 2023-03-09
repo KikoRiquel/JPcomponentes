@@ -10,6 +10,9 @@ import { ArticulosComponent } from './secciones/articulos/articulos.component';
 import { CarritoComponent } from './secciones/carrito/carrito.component';
 import { Page404Component } from './error/page404/page404.component';
 import { TarjetasArticulosComponent } from './secciones/tarjetas-articulos/tarjetas-articulos.component';
+import { PipeCatPipe } from './pipes/pipe-cat.pipe';
+import { PipeFabPipe } from './pipes/pipe-fab.pipe';
+import { PipeNomPipe } from './pipes/pipe-nom.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { TarjetasArticulosComponent } from './secciones/tarjetas-articulos/tarje
     CarritoComponent,
     Page404Component,
     TarjetasArticulosComponent,
+    PipeCatPipe,
+    PipeFabPipe,
+    PipeNomPipe,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
