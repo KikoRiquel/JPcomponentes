@@ -6,7 +6,9 @@
       <h5 class="card-title">
         {{ articulos.precio | currency : "EUR" }}
       </h5>
-      <p class="card-text">{{ articulos.nombre }}</p>
+      <p class="card-text text-nowrap text-truncate">
+        {{ articulos.nombre }}
+      </p>
     </div>
     <div class="card-footer">
       <!-- ---------------------- BOTON CUANDO SI HAY STOCK ---------------------- -->

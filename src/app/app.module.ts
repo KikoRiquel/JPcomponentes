@@ -13,6 +13,7 @@ import { TarjetasArticulosComponent } from './secciones/tarjetas-articulos/tarje
 import { PipeCatPipe } from './pipes/pipe-cat.pipe';
 import { PipeFabPipe } from './pipes/pipe-fab.pipe';
 import { PipeNomPipe } from './pipes/pipe-nom.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { PipeNomPipe } from './pipes/pipe-nom.pipe';
     PipeFabPipe,
     PipeNomPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

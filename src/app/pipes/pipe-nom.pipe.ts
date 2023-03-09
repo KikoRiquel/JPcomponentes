@@ -1,12 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'pipeNom'
+  name: 'pipeNom',
 })
 export class PipeNomPipe implements PipeTransform {
-
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(articulos: any[], busqueda: string): any[] {
+    if (articulos.length && busqueda) {
+      return articulos.filter((a) =>
+        a.nombre.toLowerCase().includes(busqueda.toLowerCase())
+      );
+    } else {
+      return articulos;
+    }
   }
-
 }

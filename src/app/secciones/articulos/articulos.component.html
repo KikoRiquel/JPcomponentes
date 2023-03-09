@@ -3,10 +3,17 @@
     type="text"
     class="form-control"
     placeholder="Buscador"
-    aria-label="Recipient's username"
+    aria-label="Buscador"
     aria-describedby="button-addon2"
+    #busqueda
+    (keyup.Enter)="filtroNom = busqueda.value"
   />
-  <button class="btn btn-primary" type="button" id="button-addon2">
+  <button
+    class="btn btn-primary"
+    type="button"
+    id="button-addon2"
+    (click)="filtroNom = busqueda.value"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -37,7 +44,9 @@
       <h5>Categorias</h5>
       <ul class="nav nav-pills">
         <li class="nav-item" *ngFor="let a of getCategorias()">
-          <a class="nav-link" (click)="filtroCat = a.id">{{ a.nombre }}</a>
+          <a class="nav-link" role="button" (click)="filtroCat = a.id">{{
+            a.nombre
+          }}</a>
         </li>
       </ul>
     </div>
@@ -45,22 +54,55 @@
       <h5>Fabricantes</h5>
       <ul class="nav nav-pills">
         <li class="nav-item" *ngFor="let a of getFabricantes()">
-          <a class="nav-link" (click)="filtroFab = a.id">{{ a.nombre }}</a>
+          <a class="nav-link" role="button" (click)="filtroFab = a.id"
+            >{{ a.nombre }}
+          </a>
         </li>
       </ul>
     </div>
+    <!-- <div class="fabricantes">
+      <h5>Fabricantes</h5>
+      <ul class="nav nav-pills">
+        <li class="nav-item" *ngFor="let a of getFabricantes()">
+          <a class="nav-link" role="button" (click)="filtroFab = a.id">{{
+            a.nombre
+          }}</a>
+        </li>
+      </ul>
+    </div> -->
+    <!-- <ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let a of getFabricantes()">
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-outlined-{{ a.id }}"
+          autocomplete="on"
+        />
+        <label
+          for="btn-check-outlined-{{ a.id }}"
+          class="btn btn-outline-primary"
+          (click)="filtroFab = a.id"
+        >
+          {{ a.nombre }}
+        </label>
+      </li>
+    </ul> -->
+    <button
+      class="btn btn-danger w-100 mt-3"
+      type="button"
+      (click)="resetFilters()"
+    >
+      Limpiar Filtros
+    </button>
   </div>
 </div>
-<!-- <div class="row row-cols-1 row-cols-md-auto"> -->
-<!-- <div class="d-flex flex-wrap column-gap-5 row-gap-1">
-row row-cols-1 row-cols-md-auto g-4
--->
 <div class="card-group column-gap-5 row-gap-4">
   <app-tarjetas-articulos
     *ngFor="
       let articulos of getArticulos()
         | pipeCat : filtroCat
         | pipeFab : filtroFab
+        | pipeNom : filtroNom
     "
     [articulos]="articulos"
   ></app-tarjetas-articulos>

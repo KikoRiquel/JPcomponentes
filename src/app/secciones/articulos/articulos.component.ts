@@ -9,9 +9,25 @@ import { ConexionDBService } from 'src/app/services/conexion-db.service';
 export class ArticulosComponent {
   filtroCat: number = 0;
   filtroFab: number = 0;
-  filtroNombre: string = '';
+  filtroNom: string = '';
+  arrayFab: Array<number> = [];
 
   constructor(private db: ConexionDBService) {}
+
+  getArray() {
+    console.log(this.arrayFab, this.arrayFab.length);
+  }
+  getBoolean() {
+    console.log(this.filtroFab);
+  }
+  getString() {
+    console.log(this.filtroNom);
+  }
+  resetFilters() {
+    this.filtroCat = 0;
+    this.filtroFab = 0;
+    this.filtroNom = '';
+  }
 
   getCategorias(): Array<any> {
     return this.db.getCategorias();
@@ -22,6 +38,7 @@ export class ArticulosComponent {
   getArticulos(): Array<any> {
     return this.db.getArticulos();
   }
+  /* --------------- Pipes implementados en el propio component --------------- */
   /*
   (click)="filtroCat = a.id"(click)="filtroFab = a.id"
   let arts = this.db.getArticulos();
