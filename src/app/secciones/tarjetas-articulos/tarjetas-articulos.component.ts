@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ConexionDBService } from 'src/app/services/conexion-db.service';
 
 @Component({
   selector: 'app-tarjetas-articulos',
@@ -8,5 +7,5 @@ import { ConexionDBService } from 'src/app/services/conexion-db.service';
 })
 export class TarjetasArticulosComponent {
   @Input() articulos: any = [];
-  constructor(private db: ConexionDBService) {}
+  constructor() {}
 }

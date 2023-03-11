@@ -1,3 +1,4 @@
+<h1>Articulos</h1>
 <div class="input-group mb-3 mt-3">
   <input
     type="text"
@@ -42,51 +43,44 @@
   <div class="card card-body mb-3">
     <div class="categorias">
       <h5>Categorias</h5>
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills my-3 justify-content-evenly">
         <li class="nav-item" *ngFor="let a of getCategorias()">
-          <a class="nav-link" role="button" (click)="filtroCat = a.id">{{
-            a.nombre
-          }}</a>
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="btn-check-outlined-{{ a.id }}"
+            autocomplete="on"
+          />
+          <label
+            for="btn-check-outlined-{{ a.id }}"
+            class="btn btn-outline-primary"
+            (click)="filtroCat = a.id"
+          >
+            {{ a.nombre }}
+          </label>
         </li>
       </ul>
     </div>
     <div class="fabricantes">
       <h5>Fabricantes</h5>
       <ul class="nav nav-pills">
-        <li class="nav-item" *ngFor="let a of getFabricantes()">
-          <a class="nav-link" role="button" (click)="filtroFab = a.id"
-            >{{ a.nombre }}
-          </a>
+        <li class="nav-item mx-2" *ngFor="let a of getFabricantes()">
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="btn-check-outlined-{{ a.id }}"
+            autocomplete="on"
+          />
+          <label
+            for="btn-check-outlined-{{ a.id }}"
+            class="btn btn-outline-primary"
+            (click)="filtroFab = a.id"
+          >
+            {{ a.nombre }}
+          </label>
         </li>
       </ul>
     </div>
-    <!-- <div class="fabricantes">
-      <h5>Fabricantes</h5>
-      <ul class="nav nav-pills">
-        <li class="nav-item" *ngFor="let a of getFabricantes()">
-          <a class="nav-link" role="button" (click)="filtroFab = a.id">{{
-            a.nombre
-          }}</a>
-        </li>
-      </ul>
-    </div> -->
-    <!-- <ul class="nav nav-pills">
-      <li class="nav-item" *ngFor="let a of getFabricantes()">
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-outlined-{{ a.id }}"
-          autocomplete="on"
-        />
-        <label
-          for="btn-check-outlined-{{ a.id }}"
-          class="btn btn-outline-primary"
-          (click)="filtroFab = a.id"
-        >
-          {{ a.nombre }}
-        </label>
-      </li>
-    </ul> -->
     <button
       class="btn btn-danger w-100 mt-3"
       type="button"
