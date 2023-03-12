@@ -4,7 +4,7 @@
     <!-- si en el src hay espacios se va a quejar diciendo que no esta sanitizado -->
     <div class="card-body">
       <h5 class="card-title">
-        {{ articulos.precio | currency : "EUR" }}
+        {{ articulos.precio | currency : "EUR" }} {{ articulos.fab }}
       </h5>
       <p class="card-text text-nowrap text-truncate">
         {{ articulos.nombre }}
